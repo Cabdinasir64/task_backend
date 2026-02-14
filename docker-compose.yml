@@ -1,0 +1,16 @@
+version: '3.8' 
+
+services:
+  backend-app: 
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: task_backend_container
+    ports:
+      - "3000:3000" 
+    env_file:
+      - .env 
+    volumes:
+      - .:/task_backend 
+      - /task_backend/node_modules 
+    restart: always 
