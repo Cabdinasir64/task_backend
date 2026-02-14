@@ -1,14 +1,15 @@
 services:
-  backend-app: 
-    build: 
+  backend-app:
+    build:
+      image: task_backend_image
       context: .
       dockerfile: Dockerfile
     container_name: task_backend_container
     ports:
-      - "3000:3000" 
+      - "3000:3000"
     env_file:
-      - .env 
+      - .env
     volumes:
-      - .:/task_backend 
-      - /task_backend/node_modules 
-    restart: always 
+      - .:/app
+      - /app/node_modules
+    restart: always
